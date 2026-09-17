@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Old Pune Ganpati Trail — A Darshan Morning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          parchment: 'var(--parchment)',
+          card: 'var(--parchment-card)',
+          ink: 'var(--ink)',
+          inksoft: 'var(--ink-soft)',
+          maroon: 'var(--maroon)',
+          maroondeep: 'var(--maroon-deep)',
+          marigold: 'var(--marigold)',
+          brass: 'var(--brass)',
+          leaf: 'var(--leaf)',
+        },
+        fontFamily: {
+          display: ['"Rozha One"', 'serif'],
+          body: ['Karla', 'sans-serif'],
+        }
+      }
+    }
+  };
+</script>
+<style>
+  :root{
+    --parchment: #FBF2E2;
+    --parchment-card: #FFFAF1;
+    --ink: #2A1712;
+    --ink-soft: #6B5544;
+    --maroon: #7A2229;
+    --maroon-deep: #4F1418;
+    --marigold: #E38A22;
+    --marigold-soft: #F3C078;
+    --brass: #A67C2E;
+    --leaf: #3E6B45;
+    --leaf-soft: #DCE9DC;
+    --shadow-warm: rgba(79,20,24,0.16);
+    --card-border: rgba(166,124,46,0.28);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --parchment: #1B100C;
+      --parchment-card: #2A1912;
+      --ink: #F3E7D6;
+      --ink-soft: #C9AF98;
+      --maroon: #E0757C;
+      --maroon-deep: #170B08;
+      --marigold: #F0A03D;
+      --marigold-soft: #7A5423;
+      --brass: #D4A94A;
+      --leaf: #8DBB92;
+      --leaf-soft: #223223;
+      --shadow-warm: rgba(0,0,0,0.5);
+      --card-border: rgba(212,169,74,0.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    --parchment: #1B100C;
+    --parchment-card: #2A1912;
+    --ink: #F3E7D6;
+    --ink-soft: #C9AF98;
+    --maroon: #E0757C;
+    --maroon-deep: #170B08;
+    --marigold: #F0A03D;
+    --marigold-soft: #7A5423;
+    --brass: #D4A94A;
+    --leaf: #8DBB92;
+    --leaf-soft: #223223;
+    --shadow-warm: rgba(0,0,0,0.5);
+    --card-border: rgba(212,169,74,0.28);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+  body{
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Karla', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3, .display{ font-family: 'Rozha One', serif; font-weight: 400; }
+  a{ color: inherit; }
+  ::selection{ background: var(--marigold-soft); }
+  :focus-visible{ outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(120% 140% at 15% 0%, var(--maroon) 0%, var(--maroon-deep) 46%, #2E0D10 100%);
+    color: #FBF2E2;
+    padding-bottom: 34px;
+  }
+  .hero-pattern{
+    position:absolute; inset:0; opacity:0.14; pointer-events:none;
+    background-image: radial-gradient(circle at 10px 10px, #F3C078 2px, transparent 2.4px);
+    background-size: 34px 34px;
+  }
+  .hero-bunting{
+    position:absolute; left:0; right:0; bottom:0; height:20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='20'%3E%3Cpolygon points='2,0 28,0 15,18' fill='%23F3C078'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 30px 20px;
+    opacity: 0.9;
+  }
+  .hero-bunting::after{
+    content:''; position:absolute; left:0; right:0; top:-6px; height:6px;
+    background: var(--brass); opacity:0.9;
+  }
+
+  /* ---------- decorative divider ---------- */
+  .motif-divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin: 6px 0 28px; }
+  .motif-divider .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); opacity:0.55; }
+  .motif-divider .diamond{ width:9px; height:9px; background:var(--marigold); transform:rotate(45deg); }
+
+  /* ---------- route map ---------- */
+  .map-panel{ position:relative; overflow:hidden; }
+  .map-panel .map-bg{
+    position:absolute; inset:0; opacity:0.6; pointer-events:none;
+    background-image: radial-gradient(circle at 8px 8px, var(--card-border) 1.4px, transparent 1.6px);
+    background-size: 26px 26px;
+  }
+  .route-illustration{ position:relative; z-index:1; }
+  .trailpath{
+    stroke-dasharray: 2600; stroke-dashoffset: 2600;
+    animation: draw 2.6s ease-out 0.15s forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce){ .trailpath{ animation:none; stroke-dashoffset:0; } }
+
+  /* ---------- trail list ---------- */
+  .trail-step{ display:flex; gap:16px; align-items:flex-start; position:relative; }
+  .trail-step.is-visited .stop-card{ opacity:0.72; }
+  .stop-marker{
+    flex:0 0 42px; width:42px; height:42px; border-radius:50%;
+    background: var(--marigold); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Rozha One', serif; font-size:1.05rem;
+    position:relative; z-index:1;
+    box-shadow: 0 0 0 3px var(--parchment), 0 0 0 5px var(--card-border), 0 5px 12px var(--shadow-warm);
+  }
+  .stop-marker.start-marker{ background:var(--brass); }
+  .stop-marker.finale-marker{ background:var(--leaf); }
+  .trail-step:not(:last-child) .stop-marker::after{
+    content:''; position:absolute; left:50%; transform:translateX(-50%);
+    top:44px; width:2px; height:58px;
+    background-image: linear-gradient(var(--brass) 55%, transparent 0%);
+    background-size: 2px 9px; background-repeat: repeat-y;
+    opacity:0.6;
+  }
+  .stop-card{
+    flex:1 1 auto; min-width:0;
+    background: var(--parchment-card);
+    border:1px solid var(--card-border);
+    border-radius: 26px 26px 10px 10px;
+    box-shadow: 0 12px 30px -14px var(--shadow-warm);
+    padding: 22px 20px 20px;
+    position:relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .stop-card:hover{ transform: translateY(-2px); box-shadow: 0 16px 34px -14px var(--shadow-warm); }
+  .stop-card::before{
+    content:''; position:absolute; top:0; left:20px; right:20px; height:3px;
+    background:linear-gradient(90deg, transparent, var(--brass), transparent);
+    border-radius:2px;
+  }
+  .badge-pill{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:0.78rem; padding:4px 12px; border-radius:999px;
+    background: var(--marigold-soft); color: var(--maroon-deep); font-weight:600;
+  }
+  :root[data-theme="dark"] .badge-pill, @media (prefers-color-scheme: dark){ .badge-pill{ color:#1B100C; } }
+  .badge-pill.leafpill{ background: var(--leaf-soft); color: var(--leaf); }
+  .badge-pill svg{ flex:0 0 auto; }
+  .devnagari{ color: var(--ink-soft); font-size:0.95rem; }
+  .info-row{ font-size:0.86rem; color:var(--ink-soft); }
+  .directions-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--maroon); color:#fff !important; font-weight:600;
+    padding:9px 16px; border-radius:10px; font-size:0.88rem;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .directions-btn:hover{ background:var(--maroon-deep); transform: translateY(-1px); }
+  .directions-btn.finale{ background:var(--leaf); }
+  .directions-btn.finale:hover{ background:#2E4F33; }
+  .trail-gap{ margin-left:58px; padding:8px 0 8px 2px; font-size:0.82rem; color:var(--brass); display:flex; align-items:center; gap:8px; }
+  input[type="checkbox"].stop-check{ width:20px; height:20px; accent-color: var(--leaf); cursor:pointer; }
+
+  .progress-track{ height:8px; border-radius:999px; background:var(--marigold-soft); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--leaf); width:0%; transition:width 0.3s ease; border-radius:999px; }
+
+  #printBtn{
+    position:fixed; right:16px; bottom:16px; z-index:40;
+    background:var(--maroon); color:#fff; border-radius:999px;
+    padding:12px 18px; font-size:0.85rem; font-weight:600;
+    box-shadow:0 8px 22px var(--shadow-warm); border:none; cursor:pointer;
+    display:flex; align-items:center; gap:8px;
+  }
+  #printBtn:hover{ background:var(--maroon-deep); }
+
+  .fieldnote{ background: var(--parchment-card); border:1px solid var(--card-border); border-radius:18px; padding:18px 20px; }
+
+  .watermark{ color:var(--brass); letter-spacing:0.04em; }
+
+  @media print{
+    #printBtn, .no-print, .hero-bunting, .hero-pattern, .map-bg{ display:none !important; }
+    body{ background:#fff; color:#111; }
+    .hero{ background:#fff !important; color:#111 !important; padding:12px 0 !important; }
+    .stop-card{ box-shadow:none; border:1px solid #999; break-inside:avoid; }
+    .directions-btn{ display:none; }
+    a[href]::after{ content:" (" attr(href) ")"; font-size:0.7rem; color:#555; }
+    svg.route-illustration{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<button id="printBtn" class="no-print" onclick="window.print()" aria-label="Print or save this itinerary as PDF">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  Print / Save PDF
+</button>
+
+<!-- ============ HERO ============ -->
+<header class="hero pt-14 px-6">
+  <div class="hero-pattern"></div>
+  <div class="max-w-3xl mx-auto relative">
+    <p class="text-sm text-[#F3C078] mb-3">A Ganeshotsav 2026 walk through Pune</p>
+    <h1 class="display text-4xl sm:text-5xl leading-tight mb-4">The Old Pune<br>Ganpati Trail</h1>
+    <p class="text-lg sm:text-xl text-[#F6E6CF] max-w-xl mb-5">Eight sacred stops, a mythical detour among them, and mastani at the end — a morning through the lanes where this whole festival began, mapped out stop by stop for the two of you.</p>
+    <p class="text-[#E8CBA6] text-[0.95rem] max-w-xl">Start at Shaniwar Wada, finish on a shared Mastani — about <strong class="text-white">5 hours</strong> and <strong class="text-white">2.7&nbsp;km</strong> on foot, with room to spare for Shaniwar Wada's interior at the end. Best begun by <strong class="text-white">7:00–7:30&nbsp;AM</strong>.</p>
+
+    <div class="mt-8 max-w-xs">
+      <div class="flex justify-between text-xs text-[#F3C078] mb-1"><span id="progressLabel">0 of 9 stops visited</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+  <div class="hero-bunting" aria-hidden="true"></div>
+</header>
+
+<!-- ============ ROUTE OVERVIEW ============ -->
+<section class="max-w-3xl mx-auto px-6 -mt-4 relative z-10 mb-14">
+  <div class="fieldnote map-panel">
+    <div class="map-bg" aria-hidden="true"></div>
+    <h2 class="display text-2xl mb-1 relative" style="color:var(--maroon)">Your route, at a glance</h2>
+    <p class="text-sm mb-4 relative" style="color:var(--ink-soft)">A schematic, not a survey map — tap "Get directions" on any stop below for the real thing.</p>
+
+    <svg class="route-illustration w-full h-auto" viewBox="0 0 420 380" role="img" aria-label="Schematic map showing the trail order: Shaniwar Wada, Kasba Ganpati, Bhausaheb Rangari, Dagdusheth, Tambdi Jogeshwari, Guruji Talim, Tulshibaug, Shanipar, Kesariwada, then the food finale">
+      <polyline points="55,50 165,50 275,50 365,50 365,175 275,175 165,175 55,175 55,300 185,300"
+        fill="none" stroke="var(--brass)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="1,13" opacity="0.85" class="trailpath"/>
+
+      <circle cx="55" cy="50" r="17" fill="var(--brass)"/>
+      <text x="55" y="55" text-anchor="middle" fill="#fff" font-family="Karla, sans-serif" font-weight="700" font-size="13">S</text>
+      <text x="55" y="76" text-anchor="middle" fill="var(--ink-soft)" font-family="Karla, sans-serif" font-size="10">Shaniwar Wada</text>
+
+      <g font-family="Karla, sans-serif">
+        <circle cx="165" cy="50" r="16" fill="var(--marigold)"/><text x="165" y="55" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">1</text><text x="165" y="76" text-anchor="middle" fill="var(--ink-soft)" font-size="10">Kasba</text>
+
+        <circle cx="275" cy="50" r="16" fill="var(--marigold)"/><text x="275" y="55" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">2</text><text x="275" y="76" text-anchor="middle" fill="var(--ink-soft)" font-size="10">B. Rangari</text>
+
+        <circle cx="365" cy="50" r="16" fill="var(--marigold)"/><text x="365" y="55" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">3</text><text x="365" y="76" text-anchor="middle" fill="var(--ink-soft)" font-size="10">Dagdusheth</text>
+
+        <circle cx="365" cy="175" r="16" fill="var(--marigold)"/><text x="365" y="180" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">4</text><text x="365" y="201" text-anchor="middle" fill="var(--ink-soft)" font-size="10">Jogeshwari</text>
+
+        <circle cx="275" cy="175" r="16" fill="var(--marigold)"/><text x="275" y="180" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">5</text><text x="275" y="201" text-anchor="middle" fill="var(--ink-soft)" font-size="10">G. Talim</text>
+
+        <circle cx="165" cy="175" r="16" fill="var(--marigold)"/><text x="165" y="180" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">6</text><text x="165" y="201" text-anchor="middle" fill="var(--ink-soft)" font-size="10">Tulshibaug</text>
+
+        <circle cx="55" cy="175" r="16" fill="var(--marigold)"/><text x="55" y="180" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">7</text><text x="55" y="201" text-anchor="middle" fill="var(--ink-soft)" font-size="10">Shanipar</text>
+
+        <circle cx="55" cy="300" r="16" fill="var(--marigold)"/><text x="55" y="305" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">8</text><text x="55" y="326" text-anchor="middle" fill="var(--ink-soft)" font-size="10">Kesariwada</text>
+      </g>
+
+      <circle cx="185" cy="300" r="17" fill="var(--leaf)"/>
+      <text x="185" y="305" text-anchor="middle" fill="#fff" font-family="Karla, sans-serif" font-weight="700" font-size="12">F</text>
+      <text x="185" y="326" text-anchor="middle" fill="var(--ink-soft)" font-family="Karla, sans-serif" font-size="10">Finale</text>
+      <path d="M 210,278 L 213,284 L 219,284 L 214,288 L 216,295 L 210,291 L 204,295 L 206,288 L 201,284 L 207,284 Z" fill="var(--marigold-soft)"/>
+    </svg>
+
+    <p class="text-xs mt-3 relative" style="color:var(--ink-soft)">S = Shaniwar Wada (start) · 1–8 in walking order · the food finale loops back near stops 5–6</p>
+  </div>
+</section>
+
+<!-- ============ TRAIL ============ -->
+<main class="max-w-3xl mx-auto px-6 pb-4">
+  <div class="trail flex flex-col gap-5">
+
+    <!-- START -->
+    <div class="trail-step">
+      <div class="stop-marker start-marker" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+      </div>
+      <div class="stop-card">
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>Where this whole story begins</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Shaniwar Wada</h3>
+        <p class="devnagari mb-2">शनिवारवाडा</p>
+        <p class="mb-3" style="max-width:60ch">Built in 1732 as the seat of the Peshwas, this fortress-palace once governed the Maratha Empire from the very neighbourhood you're about to walk through. Fire gutted most of the interior two centuries ago, but the towering Delhi Darwaza gate and the garden ruins beyond still set the scene beautifully — especially in the soft light before 9&nbsp;AM, when the gates aren't even open yet but the walk-up view might be the best part anyway.</p>
+        <p class="info-row mb-3">Interior opens 9:00 AM–5:30 PM (₹20 entry) · exterior viewable any time · <em>tip: loop back here once your trail is done — it'll be open by then</em></p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5195841,73.8554208&destination_place_id=ChIJEXtrIuLBwjsRi6ZcFwaBu6Q&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~210m · about 3 min walk</div>
+
+    <!-- STOP 1 -->
+    <div class="trail-step" data-stop-wrap="1">
+      <div class="stop-marker">1</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="1"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>The 1st Manacha, and Pune's own Gramadevata</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Kasba Ganpati</h3>
+        <p class="devnagari mb-2">कसबा गणपती</p>
+        <p class="mb-3" style="max-width:60ch">Legend has it that Jijabai, mother of Chhatrapati Shivaji Maharaj, installed this idol in the 17th century after one surfaced near her home in Kasba Peth — and Pune has treated it as the city's own guardian deity ever since. By long-standing rule, no other Ganpati idol in the city begins its immersion procession until Kasba's has gone first.</p>
+        <p class="info-row mb-3">6:00 AM–10:30 PM (closed to entry 12–4 PM; darshan from the doorway still works) · usual wait 15–30 min</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5190414,73.8573208&destination_place_id=ChIJxwVhhWXAwjsRrW-T8LDL4lo&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~270m · about 4 min walk</div>
+
+    <!-- STOP 2 -->
+    <div class="trail-step" data-stop-wrap="2">
+      <div class="stop-marker">2</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="2"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>India's first public Ganpati, 1892</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Shrimant Bhausaheb Rangari Ganpati</h3>
+        <p class="devnagari mb-2">श्रीमंत भाऊसाहेब रंगारी गणपती</p>
+        <p class="mb-3" style="max-width:60ch">A year before Lokmanya Tilak turned Ganeshotsav into a nationwide movement, a royal physician named Bhausaheb Rangari had already done it quietly, right here — installing the country's first sarvajanik (public) Ganpati idol as cover for secret meetings against British rule. The idol, carved showing Ganesha slaying a demon, hasn't been repainted or replaced since.</p>
+        <p class="info-row mb-3">8:00 AM–1:00 PM, 4:00–9:00 PM · usual wait 15–25 min · tucked in a lane right before Dagdusheth</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5175403,73.8553125&destination_place_id=ChIJ35yfjW_AwjsRlW8yvgDFvaQ&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~150m · about 2 min walk</div>
+
+    <!-- STOP 3 -->
+    <div class="trail-step" data-stop-wrap="3">
+      <div class="stop-marker">3</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="3"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>Pune's most magnificent Ganpati</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Shrimant Dagdusheth Halwai Ganpati</h3>
+        <p class="devnagari mb-2">श्रीमंत दगडूशेठ हलवाई गणपती</p>
+        <p class="mb-3" style="max-width:60ch">After sweet-maker Dagdusheth Halwai and his wife Lakshmibai lost their only son to plague in the 1890s, their spiritual guide told them to grieve by giving to the whole city instead. What they built — an idol wrapped in gold, jewels and constant devotion — is now one of India's richest and most visited temple trusts.</p>
+        <p class="info-row mb-3">6:00 AM–11:00 PM · genuinely quick before 9 AM; by evening on a festival day it can run 3+ hours, so morning really is your friend here</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5164157,73.8560495&destination_place_id=ChIJ_0K0pW_AwjsR4bxItvVl850&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~135m · about 2 min walk</div>
+
+    <!-- STOP 4 -->
+    <div class="trail-step" data-stop-wrap="4">
+      <div class="stop-marker">4</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="4"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>The 2nd Manacha, reborn in fresh clay every year</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Tambdi Jogeshwari</h3>
+        <p class="devnagari mb-2">तांबडी जोगेश्वरी</p>
+        <p class="mb-3" style="max-width:60ch">Pune's second-ranked Manacha honours the city's own Gram-devi in a shrine with roots going back centuries. Almost alone among the grand mandals, Tambdi Jogeshwari still hand-sculpts a fresh clay idol every single year and immerses it faithfully — no fibreglass, no permanent murti, just an old promise kept season after season.</p>
+        <p class="info-row mb-3">7:30 AM–1:00 PM, 3:30–10:00 PM · usual wait 20–40 min, longer once the evening lighting comes on</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5165556,73.8547939&destination_place_id=ChIJQTeFwW_AwjsRvoONCAuMdno&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~140m · about 2 min walk</div>
+
+    <!-- STOP 5 -->
+    <div class="trail-step" data-stop-wrap="5">
+      <div class="stop-marker">5</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="5"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>The 3rd Manacha, built by two communities</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Guruji Talim</h3>
+        <p class="devnagari mb-2">गुरुजी तालीम</p>
+        <p class="mb-3" style="max-width:60ch">Named for a 19th-century wrestling gymnasium that once stood here, this mandal was founded jointly by Hindu and Muslim families in 1887 — six years before Tilak's public Ganeshotsav even existed. It's one of the quietest, most sincere stops on the trail, and a reminder of exactly who built this festival's earliest traditions.</p>
+        <p class="info-row mb-3">Open through the festival, roughly 6 AM–11 PM · usual wait under 20 min</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5157231,73.8550528&destination_place_id=ChIJD5uoYgDBwjsR8oNp-UVAYE4&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~165m · about 3 min walk</div>
+
+    <!-- STOP 6 -->
+    <div class="trail-step" data-stop-wrap="6">
+      <div class="stop-marker">6</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="6"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>The 4th Manacha, right inside the bazaar</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Tulshibaug Ganpati</h3>
+        <p class="devnagari mb-2">तुळशीबाग गणपती</p>
+        <p class="mb-3" style="max-width:60ch">Set inside one of Pune's oldest and most delightfully chaotic shopping lanes, this towering idol has watched over bargain hunters since the early 1900s. It was also the first Ganpati in the city sculpted in fibreglass rather than fresh clay, trading an annual rebuild for a murti that could be dressed in ever more elaborate jewellery.</p>
+        <p class="info-row mb-3">9:00 AM–9:00 PM · usual wait 30–45 min · nicest before noon, the market itself gets loud after that</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5142564,73.8553109&destination_place_id=ChIJJ68JWwDBwjsRBcX6nMmQBek&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~350m · about 5 min walk</div>
+
+    <!-- STOP 7 (was Shanipar / 8) -->
+    <div class="trail-step" data-stop-wrap="7">
+      <div class="stop-marker">7</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="7"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>A different myth retold, every single year</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Shanipar Mandal — this year's theme: "Shambhala"</h3>
+        <p class="devnagari mb-2">शनिपार मंडळ</p>
+        <p class="mb-3" style="max-width:60ch">134 years in, this mandal still refuses to repeat itself. Every Ganeshotsav, Shanipar rebuilds its pandal around a different, often overlooked corner of Indian mythology — this year, across roughly 2,500 square feet of set design, the theme is Shambhala, the hidden and half-legendary kingdom of ancient lore.</p>
+        <p class="info-row mb-3">Festival hours, typically morning–night · give it 20–30 min for the full set</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5125988,73.8524959&destination_place_id=ChIJoxEs8XHAwjsRE3FcoYuPc9M&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~515m · about 8 min walk</div>
+
+    <!-- STOP 8 (was Kesariwada / 9) -->
+    <div class="trail-step" data-stop-wrap="8">
+      <div class="stop-marker">8</div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="8"> visited
+        </label>
+        <span class="badge-pill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>The 5th Manacha, born in a newsroom</span>
+        <h3 class="display text-xl mt-2 mb-0.5">Kesariwada Ganpati</h3>
+        <p class="devnagari mb-2">केसरीवाडा गणपती</p>
+        <p class="mb-3" style="max-width:60ch">The fifth and final Manacha closes the ceremonial circle inside the very building that once printed Kesari — Lokmanya Tilak's newspaper, and the launchpad for the public Ganeshotsav movement itself. A small attached museum keeps Tilak's memory alongside Bappa's.</p>
+        <p class="info-row mb-3">Temple open 24 hours; the Tilak museum keeps separate daytime hours · usual wait 20–30 min, more if you linger inside</p>
+        <a class="directions-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5157666,73.8489088&destination_place_id=ChIJJdmat3DAwjsRGPv07bwtjA8&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <div class="trail-gap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg> ~800m walk back toward Budhwar Peth · about 12 min</div>
+
+    <!-- FINALE (was 10, now 9) -->
+    <div class="trail-step" data-stop-wrap="9">
+      <div class="stop-marker finale-marker" aria-hidden="true">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+      </div>
+      <div class="stop-card">
+        <label class="float-right inline-flex items-center gap-2 text-xs" style="color:var(--ink-soft)">
+          <input type="checkbox" class="stop-check" data-stop-id="9"> visited
+        </label>
+        <span class="badge-pill leafpill"><svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" fill="currentColor"/></svg>The grand finale</span>
+        <h3 class="display text-xl mt-2 mb-3">Supreme Sandwich Corner &amp; Kaware Cold Drink House</h3>
+
+        <p class="font-semibold mb-1">Supreme Sandwich Corner</p>
+        <p class="mb-2" style="max-width:60ch">Somewhere north of sixty sandwich varieties, each stacked absurdly high and named like an inside joke — the Napoleon, the Bermuda Triangle, the Bombay Mix Special. Order without overthinking it.</p>
+        <p class="info-row mb-3">Budhwar Peth outlet, right by Guruji Talim · 12:30–10:30 PM · closed Mondays</p>
+        <a class="directions-btn finale mb-4" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5158131,73.854879&destination_place_id=ChIJRdg9Ee-_wjsRLF7QPwBb2Ag&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+
+        <p class="font-semibold mb-1">Kaware Cold Drink House</p>
+        <p class="mb-2" style="max-width:60ch">Right beside the Tulshibaug idol, this old-school parlour has been Pune's go-to Mastani stop for generations — somewhere between a milkshake and an ice-cream sundae. Rose, mango and pista are the classics. One Mastani, two spoons.</p>
+        <p class="info-row mb-3">Tulshibaug, a 2-minute walk from Supreme Sandwich · 11:00 AM–10:00 PM</p>
+        <a class="directions-btn finale" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=18.5142243,73.855225&destination_place_id=ChIJYZxVP27AwjsRw785nQmp6j4&travelmode=walking">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+        <p class="text-xs mt-3" style="color:var(--ink-soft)">Kaware opens earlier (11 AM) than Supreme Sandwich (12:30 PM) — if you arrive first, start with mastani and circle back for sandwiches.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="max-w-3xl mx-auto px-6"><div class="motif-divider" aria-hidden="true"><span class="dot"></span><span class="diamond"></span><span class="dot"></span></div></div>
+
+<!-- ============ MORE PANDALS ============ -->
+<section class="max-w-3xl mx-auto px-6 mb-10">
+  <div class="fieldnote">
+    <h2 class="display text-2xl mb-3" style="color:var(--maroon)">Still have appetite for one more?</h2>
+    <p class="mb-3" style="max-width:65ch">Two more worth knowing about, though neither quite fits the morning schedule above: <strong>Hutatma Babu Genu Mandal</strong>, the "Navsacha Ganpati" just behind Tulshibaug, only opens for darshan 6–10 AM — worth a peek only if you're running ahead of this itinerary. <strong>Chhatrapati Rajaram Mandal</strong> in Sadashiv Peth rebuilds a different famous temple as its pandal every year, but doesn't open until noon — a good reason to return one evening.</p>
+  </div>
+</section>
+
+<!-- ============ TIPS ============ -->
+<section class="max-w-3xl mx-auto px-6 mb-14">
+  <h2 class="display text-2xl mb-4" style="color:var(--maroon)">A few things worth knowing</h2>
+  <div class="grid sm:grid-cols-2 gap-4">
+    <div class="fieldnote">
+      <p class="font-semibold mb-1">This year's window</p>
+      <p class="text-sm" style="color:var(--ink-soft)">Ganeshotsav 2026 runs September 14–25. Go any day before the 25th — that's visarjan day, when the Manache Ganpati lead a procession through these same lanes and regular darshan gives way to the parade.</p>
+    </div>
+    <div class="fieldnote">
+      <p class="font-semibold mb-1">Start early</p>
+      <p class="text-sm" style="color:var(--ink-soft)">Leave Shaniwar Wada by 7–7:30 AM if you can. Dagdusheth's queue is genuinely reasonable at dawn and can run past three hours by evening.</p>
+    </div>
+    <div class="fieldnote">
+      <p class="font-semibold mb-1">Footwear &amp; dress</p>
+      <p class="text-sm" style="color:var(--ink-soft)">Easy slip-on shoes — you'll leave them at the door a dozen times. Shoulders and knees covered is appreciated, especially at Kasba and Tambdi Jogeshwari.</p>
+    </div>
+    <div class="fieldnote">
+      <p class="font-semibold mb-1">Weather</p>
+      <p class="text-sm" style="color:var(--ink-soft)">Mid-September Pune is warm with the odd monsoon straggler. A light rain layer and a water bottle earn their place in the bag.</p>
+    </div>
+    <div class="fieldnote">
+      <p class="font-semibold mb-1">Photography</p>
+      <p class="text-sm" style="color:var(--ink-soft)">Phones are fine outdoors, but Dagdusheth's inner sanctum asks you to put the camera away and just look for a minute.</p>
+    </div>
+    <div class="fieldnote">
+      <p class="font-semibold mb-1">Cash</p>
+      <p class="text-sm" style="color:var(--ink-soft)">Small notes help at donation boxes, and at Tulshibaug's stalls if you get distracted by shopping — you will.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center pb-8 px-6">
+  <p class="display text-2xl mb-2" style="color:var(--maroon)">Ganpati Bappa Morya</p>
+  <p class="text-sm max-w-md mx-auto mb-8" style="color:var(--ink-soft)">Researched for Ganeshotsav 2026 — pandal themes like Shanipar's change every year, but the trail and its history hold up long after. Timings and queues are estimates; the mandals' own announcements always win.</p>
+  <div class="motif-divider" aria-hidden="true"><span class="dot"></span><span class="diamond"></span><span class="dot"></span></div>
+  <p class="text-sm watermark">✦ Curated by Yuvraj ✦</p>
+</footer>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'ganpati-trail-visited-v1';
+  var visited = {};
+  try{ visited = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }catch(e){ visited = {}; }
+
+  function save(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(visited)); }catch(e){}
+  }
+
+  var checks = Array.prototype.slice.call(document.querySelectorAll('.stop-check'));
+  var total = checks.length;
+
+  function updateProgress(){
+    var done = 0;
+    checks.forEach(function(cb){ if(visited[cb.dataset.stopId]) done++; });
+    var pct = total ? Math.round((done/total)*100) : 0;
+    var fill = document.getElementById('progressFill');
+    var label = document.getElementById('progressLabel');
+    if(fill) fill.style.width = pct + '%';
+    if(label) label.textContent = done + ' of ' + total + ' stops visited';
+  }
+
+  checks.forEach(function(cb){
+    var id = cb.dataset.stopId;
+    cb.checked = !!visited[id];
+    var wrap = document.querySelector('[data-stop-wrap="'+id+'"]');
+    if(cb.checked && wrap) wrap.classList.add('is-visited');
+    cb.addEventListener('change', function(){
+      visited[id] = cb.checked;
+      save();
+      if(wrap) wrap.classList.toggle('is-visited', cb.checked);
+      updateProgress();
+    });
+  });
+  updateProgress();
+})();
+</script>
+</body>
+</html>
